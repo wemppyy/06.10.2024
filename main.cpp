@@ -20,14 +20,14 @@ void get_action(int(*calc_functions[4])(int, int), int index, int a, int b) {
 }
 
 int main() {
-	int a, b, c;
+	/*int a, b, c;
 	const int size = 4;
 	cout << "Enter two nums: ";
 	cin >> a >> b;
 	cout << "Choose operation (1. +, 2. -, 3. *, 4. /): " << endl;
 	cin >> c;
 	int(*calc_functions[size])(int, int) = { add, dif, mul, division };
-	get_action(calc_functions, c-1, a, b);
+	get_action(calc_functions, c-1, a, b);*/
 
 
 	return 0;
