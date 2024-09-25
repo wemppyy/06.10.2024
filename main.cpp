@@ -1,33 +1,51 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
-int add(int a, int b) {
-	return a + b;
-}
-int dif(int a, int b) {
-	return a - b;
-}
-int mul(int a, int b) {
-	return a * b;
-}
-int division(int a, int b) {
-	return a / b;
+template <typename T>
+T* create_arr(int size) {
+	T* arr = new T[size]();
+	for (int i = 0; i < size; i++) {
+		arr[i] = rand() % 10;
+	}
+	return arr;
 }
 
-void get_action(int(*calc_functions[4])(int, int), int index, int a, int b) {
-		cout << "Result = " << calc_functions[index](a, b) << endl;
+template <typename T>
+void array_sum(T* arr1, T* arr2, T* arr3, int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		arr3[i] = arr1[i] + arr2[i];
+	}
+}
+
+template <typename T>
+void print_arr(T* arr, int size) {
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << arr[i] << " ";
+	}cout << endl;
 }
 
 int main() {
-	/*int a, b, c;
-	const int size = 4;
-	cout << "Enter two nums: ";
-	cin >> a >> b;
-	cout << "Choose operation (1. +, 2. -, 3. *, 4. /): " << endl;
-	cin >> c;
-	int(*calc_functions[size])(int, int) = { add, dif, mul, division };
-	get_action(calc_functions, c-1, a, b);*/
+	srand(time(0));
+	int arr_size;
+	cout << "Enter size of arrys: ";
+	cin >> arr_size;
+	int* arr1 = create_arr<int>(arr_size);
+	int* arr2 = create_arr<int>(arr_size);
+	int* arr3 = new int[arr_size]();
+	array_sum(arr1, arr2, arr3, arr_size);
+	cout << "1. arr = ";
+	print_arr(arr1, arr_size);
+	cout << "2. arr = ";
+	print_arr(arr2, arr_size);
+	cout << "result = ";
+	print_arr(arr3, arr_size);
+
+
+
 
 
 	return 0;
